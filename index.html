@@ -3,39 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rilos Nyaman - Nikmati Setiap Gigitan</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Rilos Nyaman - Sensasi di Setiap Gigitan</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">RILOS.</div>
-        <ul>
-            <li><a href="index.html">Menu</a></li>
-            <li><a href="about.html">Tentang Kami & Lokasi</a></li>
-        </ul>
-    </nav>
 
-    <main class="container">
-        <h1>Pilih Rasa Rilos Favoritmu</h1>
+    <header class="parallax-hero">
+        <nav>
+            <div class="logo">RILOS.</div>
+            <ul>
+                <li><a href="index.html">Menu</a></li>
+                <li><a href="about.html">Tentang & Lokasi</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h1>Rasakan Sensasinya</h1>
+            <p>Setiap gigitan punya cerita. Gulir ke bawah untuk memilih rasamu.</p>
+        </div>
+    </header>
+
+    <main class="menu-section">
         
-        <div class="rilos-selector">
-            <button onclick="changeRilos('ayam')" class="btn ayam">Ayam Gurih</button>
-            <button onclick="changeRilos('sayur')" class="btn sayur">Sayuran Segar</button>
-            <button onclick="changeRilos('sosis')" class="btn sosis">Sosis Asap</button>
-            <button onclick="changeRilos('sapi')" class="btn sapi">Daging Sapi</button>
+        <div class="circle-container">
+            <div class="center-rilos" id="center-display">Pilih<br>Rasa</div>
+            
+            <button class="circle-item ayam" onclick="changeRilos('ayam')">Ayam</button>
+            <button class="circle-item sayur" onclick="changeRilos('sayur')">Sayur</button>
+            <button class="circle-item sosis" onclick="changeRilos('sosis')">Sosis</button>
+            <button class="circle-item sapi" onclick="changeRilos('sapi')">Sapi</button>
         </div>
 
-        <div id="rilos-content" class="content-box">
-            <h2 id="rilos-title">Selamat Datang di Rilos!</h2>
-            <p id="rilos-desc">Klik salah satu rasa di atas untuk melihat kenikmatannya.</p>
-            <p id="rilos-vibe"><strong>Suasana Pas:</strong> -</p>
+        <div id="sensation-box" class="sensation-box">
+            <h2 id="rilos-title">Menunggu Pilihanmu...</h2>
+            <p id="rilos-desc">Klik salah satu varian rilos pada menu melingkar di atas untuk melihat cerita dan kenikmatan rasanya.</p>
+            <div class="vibe-tag" id="rilos-vibe">✨ Temukan Suasana Pasmu!</div>
         </div>
+
     </main>
 
-    <a href="https://wa.me/6281234567890?text=Halo%20Rilos,%20saya%20mau%20pesan!" class="wa-btn" target="_blank">
-        💬 Pesan via WA
-    </a>
+    <a href="https://wa.me/6281234567890" class="wa-btn" target="_blank">💬 Pesan via WA</a>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
