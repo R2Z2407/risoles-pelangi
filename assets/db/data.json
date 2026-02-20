@@ -1,0 +1,80 @@
+[
+  {
+    "id": "ayam",
+    "name": "Ayam",
+    "title": "Ayam Gurih Creamy",
+    "subtitle": "Lumeran Surga di Mulutmu",
+    "desc": "Begitu kulit renyahnya pecah di gigitan pertama, lumeran ragout ayam gurih yang berpadu dengan susu creamy langsung menyergap lidah. Tekstur daging ayam asli yang lembut berpadu sempurna dengan kehangatan bumbu rahasia.",
+    "price": "Rp 5.000",
+    "spicyLevel": "Tidak Pedas",
+    "ingredients": ["Daging Ayam Pilihan", "Susu Creamy", "Wortel Segar", "Bumbu Rempah"],
+    "bgImg": "url(https://images.unsplash.com/photo-1542314831-c6a4203251ab?q=80&w=1000&auto=format&fit=crop)",
+    "mainImg": "https://images.unsplash.com/photo-1606045585501-8b9a95dd7cbf?q=80&w=600&auto=format&fit=crop",
+    "iconImg": "https://images.unsplash.com/photo-1606045585501-8b9a95dd7cbf?q=80&w=100&auto=format&fit=crop"
+  },
+  {
+    "id": "sayur",
+    "name": "Sayur",
+    "title": "Sayuran Segar Alami",
+    "subtitle": "Ringan, Sehat, Nagih",
+    "desc": "Sensasi fresh dari paduan kentang dan wortel manis alami, ditumis dengan bumbu kaldu gurih yang meresap sempurna. Rasanya ringan dan memeluk lidah tanpa bikin enek.",
+    "price": "Rp 4.000",
+    "spicyLevel": "Tidak Pedas",
+    "ingredients": ["Kentang Dieng", "Wortel Manis", "Buncis", "Kaldu Jamur"],
+    "bgImg": "url(https://images.unsplash.com/photo-1598514982205-f36b96d1e8dd?q=80&w=1000&auto=format&fit=crop)",
+    "mainImg": "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=600&auto=format&fit=crop",
+    "iconImg": "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=100&auto=format&fit=crop"
+  },
+  {
+    "id": "sosis",
+    "name": "Sosis",
+    "title": "Sosis Asap Meleleh",
+    "subtitle": "Ledakan Rasa Smoky",
+    "desc": "Potongan sosis sapi asap tebal bersembunyi di balik saus mayo keju yang meleleh lumer. Sensasi manis, gurih, dan smoky meledak seketika di mulut saat lu mengunyahnya.",
+    "price": "Rp 6.000",
+    "spicyLevel": "Pedas Sedang",
+    "ingredients": ["Sosis Sapi Asap", "Keju Lumer", "Saus Mayo", "Saus Sambal"],
+    "bgImg": "url(https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1000&auto=format&fit=crop)",
+    "mainImg": "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?q=80&w=600&auto=format&fit=crop",
+    "iconImg": "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?q=80&w=100&auto=format&fit=crop"
+  },
+  {
+    "id": "sapi",
+    "name": "Sapi",
+    "title": "Daging Sapi Lada Hitam",
+    "subtitle": "Rasa Premium yang Nendang",
+    "desc": "Isian daging sapi cincang tebal berlumur saus lada hitam pekat yang kaya rempah. Sensasi hangat dan wangi daging panggang langsung tercium sejak gigitan pertama.",
+    "price": "Rp 7.000",
+    "spicyLevel": "Pedas Hangat",
+    "ingredients": ["Daging Sapi Cincang", "Lada Hitam Tumbuk", "Bawang Bombay", "Paprika"],
+    "bgImg": "url(https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000&auto=format&fit=crop)",
+    "mainImg": "https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=600&auto=format&fit=crop",
+    "iconImg": "https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=100&auto=format&fit=crop"
+  },
+  {
+    "id": "mayo",
+    "name": "Mayo",
+    "title": "Mayo Telur Keju",
+    "subtitle": "Klasik yang Bikin Kangen",
+    "desc": "Kombinasi legendaris potongan telur rebus, keju cheddar parut, dan limpahan mayones manis gurih. Teksturnya super creamy dan lumer banget, cocok buat ganjal perut kapan aja.",
+    "price": "Rp 5.500",
+    "spicyLevel": "Tidak Pedas",
+    "ingredients": ["Telur Rebus", "Keju Cheddar", "Mayones Original", "Smoked Beef"],
+    "bgImg": "url(https://images.unsplash.com/photo-1482049016688-2d3e1b311543?q=80&w=1000&auto=format&fit=crop)",
+    "mainImg": "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=600&auto=format&fit=crop",
+    "iconImg": "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=100&auto=format&fit=crop"
+  },
+  {
+    "id": "coklat",
+    "name": "Coklat",
+    "title": "Coklat Lumer Premium",
+    "subtitle": "Manisnya Nyaman di Hati",
+    "desc": "Siapa bilang rilos harus gurih? Varian manis ini diisi dengan lelehan *dark chocolate* premium yang manisnya pas dan nggak bikin giung. Krispi di luar, lumer melimpah di dalam!",
+    "price": "Rp 5.000",
+    "spicyLevel": "Manis",
+    "ingredients": ["Dark Chocolate Premium", "Susu Kental Manis", "Kulit Krispi Spesial"],
+    "bgImg": "url(https://images.unsplash.com/photo-1511381939415-e440c05231e2?q=80&w=1000&auto=format&fit=crop)",
+    "mainImg": "https://images.unsplash.com/photo-1603501256425-c6517a94ee5c?q=80&w=600&auto=format&fit=crop",
+    "iconImg": "https://images.unsplash.com/photo-1603501256425-c6517a94ee5c?q=80&w=100&auto=format&fit=crop"
+  }
+]
