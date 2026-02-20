@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rilos Nyaman - Nikmati Setiap Gigitan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">RILOS.</div>
+        <ul>
+            <li><a href="index.html">Menu</a></li>
+            <li><a href="about.html">Tentang Kami & Lokasi</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1>Pilih Rasa Rilos Favoritmu</h1>
+        
+        <div class="rilos-selector">
+            <button onclick="changeRilos('ayam')" class="btn ayam">Ayam Gurih</button>
+            <button onclick="changeRilos('sayur')" class="btn sayur">Sayuran Segar</button>
+            <button onclick="changeRilos('sosis')" class="btn sosis">Sosis Asap</button>
+            <button onclick="changeRilos('sapi')" class="btn sapi">Daging Sapi</button>
+        </div>
+
+        <div id="rilos-content" class="content-box">
+            <h2 id="rilos-title">Selamat Datang di Rilos!</h2>
+            <p id="rilos-desc">Klik salah satu rasa di atas untuk melihat kenikmatannya.</p>
+            <p id="rilos-vibe"><strong>Suasana Pas:</strong> -</p>
+        </div>
+    </main>
+
+    <a href="https://wa.me/6281234567890?text=Halo%20Rilos,%20saya%20mau%20pesan!" class="wa-btn" target="_blank">
+        💬 Pesan via WA
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
