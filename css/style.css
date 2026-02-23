@@ -1,8 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;600;800&display=swap");
 
 :root {
   --bg-color: #451a03;
   --text-dark: #1e293b;
+}
+
+:root {
+  /* Palet Warna Baru RILOS */
+  --color-green: #80bf41;
+  --color-light-green: #b1d923;
+  --color-brown: #a68a56;
+  --color-orange: #f27405;
+  --color-bg: #f2f2f2;
+
+  --text-dark: var(--color-brown); /* Teks utama pakai cokelat */
 }
 
 body {
@@ -10,16 +21,17 @@ body {
   padding: 0;
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
-  background-color: #f8fafc;
+  background-color: var(--color-bg); /* Menggunakan putih abu-abu */
 }
 
 /* --- HAMBURGER MENU --- */
+/* --- HEADER UTAMA --- */
 header {
-  position: absolute;
+  position: fixed; /* Berubah dari absolute menjadi fixed agar terus melayang mengikuti layar */
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 30px;
+  padding: 15px 30px; /* Padding sedikit dirapikan agar proporsional saat melayang */
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -32,20 +44,98 @@ header {
   font-weight: 800;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+/* --- BRANDING LOGO BARU --- */
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-logo-img {
+  width: 45px;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+.brand-text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1;
+}
+.brand-line-1 {
+  font-weight: 800;
+  font-size: 18px;
+  color: white;
+  letter-spacing: 1px;
+}
+.brand-line-2 {
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  background-image: linear-gradient(to right, #ff5f6d, #ffc371, #4ade80, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+}
+
+/* Responsif Mobile (Taruh di dalam @media (max-width: 768px) paling bawah) */
+@media (max-width: 768px) {
+  .brand-logo-img {
+    width: 35px;
+  }
+  .brand-line-1 {
+    font-size: 16px;
+  }
+  .brand-line-2 {
+    font-size: 19px;
+  }
+}
+
+/* --- HAMBURGER MENU KEREN: "THE CRISPY SNAP" --- */
 .hamburger {
+  /* Hapus position: fixed, biarkan flexbox dari header yang mengatur letaknya */
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px; /* Jarak antar garis */
   z-index: 101;
+  padding: 5px;
 }
+
+/* Base styling untuk 3 garis */
 .hamburger div {
-  width: 30px;
+  width: 32px;
   height: 3px;
-  background: white;
-  border-radius: 3px;
-  transition: 0.3s;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  background: white; /* Warna garis saat menu tertutup */
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  /* Animasi membal (bouncy) yang renyah */
+  transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  transform-origin: center;
+}
+
+/* --- SAAT MENU TERBUKA (CLASS .active) --- */
+
+/* Garis 1 (Atas): Turun sejauh 10px lalu berputar 45 derajat */
+.hamburger.active div:nth-child(1) {
+  background: var(--color-orange); /* Gunakan var(--color-orange) jika sudah pasang palet warna, atau pakai #F27405 */
+  transform: translateY(10px) rotate(45deg);
+  box-shadow: none;
+}
+
+/* Garis 2 (Tengah): Menyusut hingga hilang */
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+  transition: all 0.2s ease-in;
+}
+
+/* Garis 3 (Bawah): Naik sejauh 10px lalu berputar -45 derajat */
+.hamburger.active div:nth-child(3) {
+  background: var(--color-orange); /* Gunakan var(--color-orange) atau #F27405 */
+  transform: translateY(-10px) rotate(-45deg);
+  box-shadow: none;
 }
 #side-menu {
   position: fixed;
@@ -71,7 +161,7 @@ header {
   color: var(--text-dark);
   font-weight: 600;
   font-size: 18px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(166, 138, 86, 0.2); /* Garis cokelat transparan */
 }
 
 /* --- BAGIAN 1: Visual & Menu (Z-index: 0) --- */
@@ -98,27 +188,100 @@ header {
 }
 
 /* Gambar Utama Ditarik ke Atas Biar Gak Nabrak */
+/* --- SHOWCASE GAMBAR UTAMA RISOLES BERDIRI --- */
 .main-risoles {
   position: absolute;
-  top: 22%; /* Posisi aman di atas */
+  top: 18%; /* Disesuaikan agar pas di tengah atas */
   left: 50%;
-  transform: translateX(-50%); /* Dipusatkan ke tengah */
-  width: 200px;
-  height: 200px;
+  transform: translateX(-50%);
+  width: 220px; /* Diperbesar sedikit */
+  height: 280px; /* Proporsi tinggi agar pas dengan risoles berdiri */
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+/* Efek cahaya di belakang risoles agar warna-warninya makin menonjol */
+.glow-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Penyesuaian gambar agar kotak melengkung estetik (bukan bulat lagi) */
 .main-risoles img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 20px; /* Sudut melengkung halus ala smartphone */
+  border: 6px solid white; /* Bingkai putih premium */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); /* Bayangan tajam */
   transition:
     transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
     opacity 0.3s;
 }
 
-/* Trik Lingkaran Raksasa Menjadi Oval di Layar */
+/* Bayangan di tanah (Dudukan) */
+.shadow-ground {
+  width: 160px;
+  height: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  margin-top: -5px;
+  filter: blur(6px);
+  transition: opacity 0.3s;
+}
+
+/* --- DAFTAR KOMPOSISI (INGREDIENTS TAGS) --- */
+.ingredients-container {
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px dashed rgba(166, 138, 86, 0.3); /* Garis putus-putus cokelat */
+}
+
+.ingredients-title {
+  font-family: "Caveat", cursive; /* Pakai font tulisan tangan */
+  color: var(--color-brown);
+  font-size: 1.5rem;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.ingredient-tag {
+  background: white;
+  color: var(--color-green);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--color-light-green);
+  box-shadow: 0 4px 6px rgba(128, 191, 65, 0.1);
+  transition:
+    transform 0.3s,
+    background 0.3s;
+  cursor: default;
+}
+
+.ingredient-tag:hover {
+  background: var(--color-light-green);
+  color: white;
+  transform: translateY(-3px);
+}
 /* Trik Lingkaran Raksasa Menjadi Lebih Lebar & Landai */
 .wheel-container {
   position: absolute;
@@ -209,47 +372,140 @@ header {
   margin-top: 8px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   background: rgba(0, 0, 0, 0.4);
-  padding: 2px 8px;
+  padding: 4px 10px; /* Sedikit dilebarkan agar lebih enak dilihat */
   border-radius: 10px;
   pointer-events: none;
   user-select: none;
+
+  /* --- TAMBAHAN AGAR CENTER & RAPI --- */
+  text-align: center; /* Memastikan teks rata tengah */
+  line-height: 1.2; /* Jarak antar baris dirapatkan jika teksnya 2 baris */
+  max-width: 80px; /* Membatasi lebar background hitam agar tidak terlalu panjang */
+  word-wrap: break-word; /* Memaksa teks turun ke bawah jika terlalu panjang */
 }
 
 .wheel-item.active .item-content img {
   transform: scale(1.3);
-  border-color: #fde047;
+  border-color: var(--color-orange); /* Border ikon yang dipilih jadi Oranye */
 }
 
 /* --- BAGIAN 2: Deskripsi Menu (Z-index tinggi) --- */
+/* --- AREA TEKS BAWAH --- */
 .bottom-section {
   position: relative;
   z-index: 10;
-  background: white;
+  background: var(--color-bg); /* Sesuai palet warna baru */
   min-height: 40vh;
-  margin-top: -50px; /* Menimpa bagian atas */
+  margin-top: -60px; /* Dinaikkan sedikit */
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
-  padding: 40px 30px;
-  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15);
+  padding: 50px 30px;
+  box-shadow: 0 -15px 40px rgba(69, 26, 3, 0.1); /* Bayangan cokelat lembut */
 }
+
 .card-content {
   text-align: center;
   max-width: 600px;
   margin: auto;
+  position: relative;
 }
+
+/* Tipografi Judul */
 .card-content h1 {
   margin: 0;
-  color: var(--text-dark);
-  font-size: 2rem;
+  color: var(--color-brown);
+  font-size: 2.2rem;
+  letter-spacing: -0.5px;
+  text-transform: capitalize;
 }
-.card-content h3 {
-  color: #f59e0b;
-  margin: 5px 0 20px 0;
+
+/* Subtitle Artisanal (Kesan dibuat dengan cinta) */
+.artisanal-text {
+  font-family: "Caveat", cursive;
+  color: var(--color-green);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: -5px 0 10px 0;
+  transform: rotate(-2deg); /* Sedikit dimiringkan agar natural */
+}
+
+/* --- ORNAMEN / UKIRAN PEMISAH --- */
+.separator-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+.separator-ornament span {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(166, 138, 86, 0.4), transparent); /* Garis memudar */
+  border-radius: 2px;
+}
+.separator-ornament svg {
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* --- TASTING NOTES (Kutipan Deskripsi) --- */
+.tasting-notes {
+  color: #52525b;
+  font-weight: 300;
+  line-height: 1.9;
+  font-size: 1.05rem;
+  position: relative;
+  padding: 0 25px;
+  margin-bottom: 30px;
+  font-style: italic; /* Dimiringkan agar puitis */
+}
+/* Efek Tanda Kutip Raksasa di Latar Teks */
+.tasting-notes::before {
+  content: "“";
+  font-family: serif;
+  font-size: 5rem;
+  color: rgba(166, 138, 86, 0.15); /* Cokelat sangat transparan */
+  position: absolute;
+  top: -30px;
+  left: 0;
+  z-index: -1;
+}
+
+/* --- BADGE HARGA & LEVEL PEDAS --- */
+.menu-meta {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.badge {
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 14px;
   font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
-.card-content p {
-  color: #64748b;
-  line-height: 1.8;
+.badge.price {
+  background: var(--color-orange);
+  color: white;
+}
+.badge.spicy {
+  background: white;
+  color: var(--color-green);
+  border: 1px solid rgba(128, 191, 65, 0.3);
 }
 
 /* --- WA FLOATING --- */
@@ -257,7 +513,7 @@ header {
   position: fixed;
   bottom: 30px;
   right: 30px; /* Berubah dari left: 50% menjadi right: 30px */
-  background: #25d366;
+  background: var(--color-green); /* Pakai Hijau Rilos */
   color: white;
   text-decoration: none;
   padding: 12px 25px;
@@ -274,6 +530,133 @@ header {
 }
 
 .wa-float:hover {
-  background: #1ebe57;
-  transform: translateY(-5px); /* Disesuaikan biar naiknya mulus pas disorot */
+  background: var(--color-light-green); /* Saat disorot berubah jadi Hijau Muda */
+  transform: translateY(-5px);
+}
+
+/* Posisi Teks Hero (Bagian Atas) yang Diperbaiki */
+.hero-content {
+  position: absolute;
+  z-index: 2;
+  top: 55%; /* Agak diturunkan ke bawah agar tidak tertutup header */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px; /* Jarak yang pas dan konsisten antara judul dan subtitle */
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.hero-content h1 {
+  font-size: 3rem; /* Disesuaikan agar tidak terlalu memakan tempat */
+  margin: 0;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  line-height: 1.2;
+}
+
+/* Modifikasi subtitle agar presisi di tengah */
+.about-subtitle {
+  color: #fde047 !important;
+  font-size: 1.8rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  /* Membatalkan efek miring khusus di bagian ini agar tata letaknya lurus & rapi */
+  transform: none;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (MOBILE & TABLET)
+   Maksimal lebar layar 768px (Ukuran HP pada umumnya)
+   ========================================= */
+
+@media (max-width: 768px) {
+  /* 1. Header & Navigasi */
+  header {
+    padding: 15px 20px; /* Padding diperkecil agar logo tidak terlalu mepet pinggir */
+  }
+  .logo {
+    font-size: 20px;
+  }
+
+  /* 2. Gambar Utama Risoles (Dikecilkan agar tidak menutupi layar) */
+  .main-risoles {
+    width: 150px;
+    height: 190px;
+    top: 15%; /* Dinaikkan sedikit */
+  }
+
+  /* 3. Roda Menu (Disesuaikan posisinya) */
+  .wheel-container {
+    bottom: -1000px; /* Diturunkan lebih dalam agar busur rodanya lebih landai di HP */
+  }
+
+  /* Ukuran ikon di roda menu agar pas dengan jari */
+  .item-content img {
+    width: 50px;
+    height: 50px;
+  }
+  .wheel-item.active .item-content img {
+    transform: scale(1.2); /* Zoom ikon yang aktif tidak usah terlalu besar di HP */
+  }
+
+  /* 4. Bagian Deskripsi Rasa (Bottom Section) */
+  .bottom-section {
+    padding: 35px 20px; /* Ruang bernapas di HP */
+    margin-top: -30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+
+  /* 5. Tipografi (Teks dikecilkan sedikit) */
+  .card-content h1 {
+    font-size: 1.8rem;
+  }
+  .artisanal-text {
+    font-size: 1.4rem;
+  }
+  .tasting-notes {
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+  .tasting-notes::before {
+    font-size: 3.5rem; /* Tanda kutip diperkecil */
+    top: -20px;
+  }
+
+  /* 6. Badge Harga & Pedas (Dibuat vertikal bersusun) */
+  .menu-meta {
+    flex-direction: column; /* Berubah dari bersampingan menjadi atas-bawah */
+    align-items: center;
+    gap: 10px;
+  }
+  .badge {
+    width: 80%; /* Tombol memanjang estetik di HP */
+    box-sizing: border-box;
+  }
+
+  /* 7. Khusus Halaman Tentang Kita (about.html) */
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .about-subtitle {
+    font-size: 1.3rem;
+  }
+  .info-box {
+    padding: 20px;
+  }
+  .info-item {
+    flex-direction: column; /* Ikon dan alamat bersusun ke bawah */
+    text-align: center;
+    gap: 10px;
+  }
+  .info-icon {
+    margin: 0 auto; /* Posisi ikon ke tengah */
+  }
 }

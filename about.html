@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <div class="logo">RILOS.</div>
+      <div id="brand-logo-container"></div>
       <div class="hamburger" onclick="toggleMenu()">
         <div></div>
         <div></div>
@@ -20,29 +20,53 @@
       </nav>
     </header>
 
-    <section class="top-section">
-      <div class="dynamic-bg" style="background-image: url(&quot;https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1000&auto=format&fit=crop&quot;); z-index: -2"></div>
+    <section class="top-section about-hero">
+      <div class="dynamic-bg" style="background-image: url(&quot;https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1000&auto=format&fit=crop&quot;)"></div>
 
-      <div style="position: absolute; z-index: 2; color: white; text-align: center; top: 40%">
-        <h1 style="font-size: 2.5rem; margin: 0; text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5)">Cerita Rilos</h1>
-        <p style="font-size: 1.1rem; text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); font-weight: 300">Dibuat dengan rasa, dinikmati dengan suasana</p>
+      <div class="hero-content">
+        <h1>Cerita Rilos</h1>
+        <p class="artisanal-text about-subtitle">Dibuat dengan rasa, dinikmati dengan suasana</p>
       </div>
     </section>
 
     <section class="bottom-section">
-      <div class="card-content" style="text-align: left">
-        <h3 style="color: #f59e0b; margin-top: 0; font-size: 1.5rem">Berawal dari Rasa Nyaman</h3>
-        <p>
+      <div class="card-content">
+        <h3 style="color: var(--color-orange); margin-top: 0; font-size: 1.8rem">Berawal dari Rasa Nyaman</h3>
+
+        <div class="separator-ornament">
+          <span></span>
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--color-green)">
+            <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"></path>
+          </svg>
+          <span></span>
+        </div>
+
+        <p class="tasting-notes" style="text-align: center">
           Rilos bukan sekadar risoles biasa. Kami percaya bahwa makanan yang enak harus bisa ngasih efek menenangkan buat yang makan. Dibuat dengan bahan premium yang selalu segar, isian lumer kami diracik khusus untuk nemenin waktu santai
           lu setelah seharian beraktivitas.
         </p>
 
-        <h3 style="color: #f59e0b; margin-top: 30px; font-size: 1.5rem">Lokasi & Suasana</h3>
-        <p>Tempat produksi kami menyatu dengan alam, jauh dari bisingnya jalan raya dan hiruk pikuk pabrik. Persis di area perkebunan yang hening dan sejuk. Karena kami tahu, ketenangan lingkungan itu nular ke rasa makanan!</p>
+        <h3 style="color: var(--color-orange); margin-top: 40px; font-size: 1.8rem">Lokasi & Suasana</h3>
 
-        <div style="background: #f1f5f9; padding: 20px; border-radius: 15px; margin-top: 20px">
-          <p style="margin: 0 0 10px 0; color: var(--text-dark)">📍 <strong>Alamat:</strong> Jl. Kebun Asri, Area Petak Hijau.</p>
-          <p style="margin: 0; color: var(--text-dark)">🕒 <strong>Jam Buka:</strong> Setiap Hari (09.00 - 20.00 WIB)</p>
+        <p style="color: var(--color-brown); line-height: 1.8; text-align: center; margin-bottom: 30px">
+          Tempat produksi kami menyatu dengan alam, jauh dari bisingnya jalan raya dan hiruk pikuk pabrik. Persis di area perkebunan yang hening dan sejuk. Karena kami tahu, ketenangan lingkungan itu nular ke rasa makanan!
+        </p>
+
+        <div class="info-box">
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <div>
+              <strong>Alamat Produksi:</strong><br />
+              Jl. Kebun Asri, Area Petak Hijau, Purwakarta.
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">🕒</span>
+            <div>
+              <strong>Jam Operasional:</strong><br />
+              Setiap Hari (09.00 - 20.00 WIB)
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <div class="logo">RILOS.</div>
+      <div id="brand-logo-container"></div>
       <div class="hamburger" onclick="toggleMenu()">
         <div></div>
         <div></div>
@@ -24,7 +24,9 @@
       <div class="dynamic-bg" id="dynamic-bg"></div>
 
       <div class="main-risoles">
-        <img id="main-img" src="https://images.unsplash.com/photo-1606045585501-8b9a95dd7cbf?q=80&w=600&auto=format&fit=crop" alt="Risoles Utama" />
+        <div class="glow-effect"></div>
+        <img id="main-img" src="" alt="Risoles Utama" />
+        <div class="shadow-ground"></div>
       </div>
 
       <div class="wheel-container">
@@ -34,11 +36,28 @@
 
     <section class="bottom-section">
       <div class="card-content">
-        <h1 id="rilos-title">Ayam Gurih Creamy</h1>
-        <h3 id="rilos-subtitle">Lumeran Surga di Mulutmu</h3>
-        <p id="rilos-desc">
-          Begitu kulit renyahnya pecah di gigitan pertama, lumeran ragout ayam gurih yang berpadu dengan susu creamy langsung menyergap lidah. Tekstur daging ayam asli yang lembut berpadu sempurna dengan kehangatan bumbu rahasia.
-        </p>
+        <h1 id="rilos-title">Judul Risoles</h1>
+        <h3 id="rilos-subtitle" class="artisanal-text">Subtitle</h3>
+
+        <div class="separator-ornament">
+          <span></span>
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--color-orange)">
+            <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"></path>
+          </svg>
+          <span></span>
+        </div>
+
+        <p id="rilos-desc" class="tasting-notes">Deskripsi lumer di sini...</p>
+
+        <div class="menu-meta">
+          <div class="badge price" id="rilos-price">Harga</div>
+          <div class="badge spicy" id="rilos-spicy">Level Pedas</div>
+        </div>
+
+        <div class="ingredients-container">
+          <p class="ingredients-title">Isian Lumer di Dalamnya:</p>
+          <div id="rilos-ingredients" class="ingredients-list"></div>
+        </div>
       </div>
     </section>
 

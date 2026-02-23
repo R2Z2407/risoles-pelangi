@@ -12,9 +12,57 @@ let isDragged = false;
 let startX = 0;
 let startRotation = 0;
 
+// --- KONFIGURASI BRAND LOGO ---
+// Kamu bisa dengan mudah mengganti teks dan gambar logo di sini!
+const brandConfig = {
+  logoImg: "assets/img/ico.png", // Ganti dengan path logo aslimu nanti
+  line1: "RISOL",
+  line2: "PELANGI",
+};
+
+// --- FUNGSI MENAMBAHKAN FAVICON (IKON TAB BROWSER) ---
+function setFavicon() {
+  // Cek apakah favicon sudah ada sebelumnya (mencegah duplikat)
+  let favicon = document.querySelector("link[rel~='icon']");
+
+  // Jika belum ada, buat elemen <link> baru
+  if (!favicon) {
+    favicon = document.createElement("link");
+    favicon.rel = "icon";
+    document.head.appendChild(favicon); // Masukkan ke dalam <head>
+  }
+
+  // Ambil gambar dari brandConfig yang sudah kita buat sebelumnya
+  favicon.href = brandConfig.logoImg;
+}
+
+// Panggil fungsinya agar langsung berjalan
+setFavicon();
+
+// Fungsi untuk merender logo ke dalam HTML
+function renderBrandLogo() {
+  const container = document.getElementById("brand-logo-container");
+  if (container) {
+    container.innerHTML = `
+      <div class="brand-container">
+        <img src="${brandConfig.logoImg}" alt="Logo ${brandConfig.line1}" class="brand-logo-img">
+        <div class="brand-text-group">
+          <span class="brand-line-1">${brandConfig.line1}</span>
+          <span class="brand-line-2">${brandConfig.line2}</span>
+        </div>
+      </div>
+    `;
+  }
+}
+
+// Panggil fungsinya langsung saat file JS dimuat
+renderBrandLogo();
+
+// --- LOGIKA HAMBURGER MENU ---
 // --- LOGIKA HAMBURGER MENU ---
 function toggleMenu() {
   document.getElementById("side-menu").classList.toggle("active");
+  document.querySelector(".hamburger").classList.toggle("active"); // Baris ini wajib ada agar animasinya terpicu
 }
 
 // --- AMBIL DATA DARI JSON ---
@@ -151,7 +199,9 @@ function updateIconsCounterRotation(wheelRot) {
 }
 
 // Fungsi utama mengubah seluruh tampilan berdasarkan menu yang dipilih
+// Fungsi utama mengubah seluruh tampilan berdasarkan menu yang dipilih
 function selectMenu(selectedIndex) {
+  // 1. Ambil data spesifik berdasarkan indeks yang terpilih
   const data = rilosData[selectedIndex];
   currentRotation = -(selectedIndex * anglePerItem);
 
@@ -168,19 +218,37 @@ function selectMenu(selectedIndex) {
   // Update Visual Background
   document.getElementById("dynamic-bg").style.backgroundImage = data.bgImg;
 
-  // Animasi Ganti Gambar Tengah (Menghilang sebentar lalu muncul yang baru)
+  // Animasi Ganti Gambar Tengah
   const mainImg = document.getElementById("main-img");
+  const shadowGround = document.querySelector(".shadow-ground"); // Ambil elemen bayangan
+
   mainImg.style.opacity = 0;
-  mainImg.style.transform = "scale(0.8)";
+  mainImg.style.transform = "scale(0.8) translateY(-20px)"; // Efek lompat kecil
+  shadowGround.style.opacity = 0;
 
   setTimeout(() => {
     mainImg.src = data.mainImg;
     mainImg.style.opacity = 1;
-    mainImg.style.transform = "scale(1)";
+    mainImg.style.transform = "scale(1) translateY(0)";
+    shadowGround.style.opacity = 1;
   }, 300);
 
-  // Update Teks Deskripsi di Bawah
+  // Update Teks, Harga, dan Level Pedas
   document.getElementById("rilos-title").innerText = data.title;
   document.getElementById("rilos-subtitle").innerText = data.subtitle;
   document.getElementById("rilos-desc").innerText = data.desc;
+  document.getElementById("rilos-price").innerText = data.price;
+  document.getElementById("rilos-spicy").innerText = data.spicyLevel;
+
+  // --- NEW: Update Daftar Komposisi (Ingredients) ---
+  const ingredientsContainer = document.getElementById("rilos-ingredients");
+  ingredientsContainer.innerHTML = ""; // Bersihkan bahan lama
+
+  // Looping bahan baru dan buat elemen span (tag) untuk masing-masing bahan
+  data.ingredients.forEach((ing) => {
+    const span = document.createElement("span");
+    span.className = "ingredient-tag";
+    span.innerText = ing;
+    ingredientsContainer.appendChild(span);
+  });
 }
