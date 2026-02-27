@@ -8,7 +8,7 @@
     "price": "Rp 2.500",
     "spicyLevel": "Tidak Pedas",
     "ingredients": ["Daging Ayam Pilihan", "Susu Creamy", "Wortel Segar", "Bumbu Rempah"],
-    "bgImg": "url('assets/img/bg-risoles/Kuning.png')",
+    "bgImg": "url('https://cdn.jsdelivr.net/gh/r2z2407/risoles-pelangi/main/assets/img/bg-risoles/Kuning.png')",
     "mainImg": "assets/img/main-risoles/Kuning.png",
     "iconImg": "assets/img/icon-risoles/Kuning.png"
   },
